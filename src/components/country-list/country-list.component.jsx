@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import CityPreview from "../country-preview/country-preview.component";
-import {CityContainer} from '../country-preview/country-preview.style';
+import {CityContainer, NoRecordContainer} from '../country-preview/country-preview.style';
 import { selectPreview, SelectIsFecthing } from "../../redux/summary/summary.selector";
 import Spinner from '../spinner/spinner.component';
 import CustomInput from '../../components/custom-input/custom-input.component';
+import NoRecord from '../../assets/norecord.png';
 
 const CountryLists = ({countryList, isFecthing}) => {
     const [country, SetCountry] = useState(countryList);
@@ -20,23 +21,29 @@ const CountryLists = ({countryList, isFecthing}) => {
         const filteredCountries = countryList.filter(country =>
             country.Country.toLowerCase().includes(searchText.toLowerCase())
         ); 
-        console.log(filteredCountries)
-        SetCountry(filteredCountries);
+        SetCountry(filteredCountries)
     };
 
     return(
+        
         <div>
             { isFecthing ? (
                 <Spinner />
             ) : (
                 <div>
-                    <CustomInput type="search" placeholder="Search Country" value={searchText} onChange={onSearchChange} />  
-                    <CityContainer> 
-                        {country
-                            .map((country) => (
-                                <CityPreview key={country.CountryCode} country={country} />
-                        ))}
-                    </CityContainer>  
+                    <CustomInput type="text" placeholder="Search Country" value={searchText} onChange={onSearchChange} />  
+                    {country.length !== 0 ?
+                        <CityContainer> 
+                            {country
+                                .map((country) => (
+                                    <CityPreview key={country.CountryCode} country={country} />
+                            ))}
+                        </CityContainer>  : 
+                        <NoRecordContainer>
+                            <img src={NoRecord} alt="No Record"/>
+                            <p>No Record Found</p>
+                        </NoRecordContainer>
+                    }
                 </div>
             )}
         </div>        

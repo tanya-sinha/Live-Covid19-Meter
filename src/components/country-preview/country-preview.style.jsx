@@ -77,3 +77,17 @@ export const Recovered = styled.h5 `
     ${texts};
     color:#17b541;
 `
+
+export const NoRecordContainer = styled.div `
+    margin:50px 0 10px;
+    img{
+        display:block;
+        margin:0 auto;
+    }
+    p{
+        font-size:20px;
+        text-align:center;
+        text-transform:uppercase;
+    }
+`
+
