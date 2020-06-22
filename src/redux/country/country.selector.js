@@ -10,4 +10,9 @@ export const selectPreview = createSelector(
 export const SelectIsCountryFecthing = createSelector(
     [selectCountry],
     Location => Location.isFetching
-)
+);
+
+export const SelectErrorMessage = createSelector(
+    [selectCountry],
+    Location => Location.errorMessage
+);

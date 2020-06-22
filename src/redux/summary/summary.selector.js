@@ -10,4 +10,4 @@ export const selectPreview = createSelector(
 export const SelectIsFecthing = createSelector(
     [selectSummary],
     Location => Location.isFetching
-)
+);

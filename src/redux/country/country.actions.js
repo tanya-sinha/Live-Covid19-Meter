@@ -21,11 +21,13 @@ export const fetchCountryAsync = (countryname) => {
         fetch(BASE_URL+"total/country/"+countryname, {"method": "GET"})
         .then(res => res.json())
         .then(res => {
-          if(res.error) {
-              throw(res.error);
+          if(res.message === "Not Found") {
+            dispatch(fetchCountryFailure(res.message));
           }
+          else {
           const CountryMap = res;
           dispatch(fetchCountrySuccess(CountryMap));
+          }
         })
         .catch(error => {
           dispatch(fetchCountryFailure(error.message));
