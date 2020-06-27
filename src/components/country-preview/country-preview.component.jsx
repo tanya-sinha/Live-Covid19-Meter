@@ -56,7 +56,7 @@ const CityPreview = ({country}) => {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchCountryAsync: () => dispatch(fetchCountryAsync(ownProps.Country))
+  fetchCountryAsync: () => dispatch(fetchCountryAsync(ownProps.countryname))
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(CityPreview));

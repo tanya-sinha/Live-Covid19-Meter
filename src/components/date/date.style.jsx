@@ -14,20 +14,9 @@ const texts = css`
         text-align:right;
     }
 `
-export const MainContainer =styled.div `
-    padding:0 20px;
-`
-
-export const CountryContainer = styled.div `
-    display:flex;
-    flex-wrap:wrap;
-    width:100%;
-    margin:20px auto;
-    flex:1;
-`
 
 export const DayList = styled.div `
-    width:calc(15% - 20px);
+    width:16.5%;
     border:1px solid #eee;
     text-align: center;
     padding: 0 0 30px;
@@ -37,13 +26,6 @@ export const DayList = styled.div `
     }
 `
 
-export const CountryTitle = styled.h4 `
-    font-size:20px;
-    margin:50px 0;
-    color:#575757;
-    text-align:center;
-    text-transform:uppercase;
-`
 export const DateField = styled.h6 `
     left: 0;
     font-size: 16px;
@@ -74,10 +56,4 @@ export const DeathLabel = styled.h5 `
 export const RecoveredLabel = styled.h5 `
     ${texts};
     color:#17b541;
-`
-
-export const NewTab = styled.div `
-    width: 100%;
-    margin: 20px 0 30px;
-    font-size:17px;
 `
